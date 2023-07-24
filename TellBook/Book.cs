@@ -8,7 +8,7 @@ namespace TellBook
 {
     internal class Book
     {
-        int numberOfContacts = 0;
+        public int numberOfContacts = 0;
         Contact[] tellBook = new Contact[40];
         private Contact CreateContact(ref Contact newContact, Contact oldContact)
         {
@@ -28,48 +28,56 @@ namespace TellBook
             }
             return -1;
         }
-        public Contact ReturnContactByIndex(int index)
+        public void DisplayContact(int index)
         {
-            return tellBook[index];
+            Console.WriteLine($"FirstName:{tellBook[index].FirstName}");
+            Console.WriteLine($"LastName:{tellBook[index].LastName}");
+            Console.WriteLine($"EmailAddress:{tellBook[index].EmailAddress}");
+            Console.WriteLine($"City:{tellBook[index].City}");
+            Console.WriteLine($"PhoneNumber:{tellBook[index].PhoneNumber}");
         }
-        private void AddContact(Contact newContact)
+        public void AddContact(Contact newContact)
         {
             int emptyIndex = SearchForEmptyIndex();
+            if (tellBook[emptyIndex] == null)
+                tellBook[emptyIndex] = newContact;
             CreateContact(ref tellBook[emptyIndex], newContact);
             numberOfContacts++;
         }
-        private void UpdateContact(Contact newContact,string phoneNumber)
+        public void UpdateContact(Contact newContact, string phoneNumber)
         {
             int oldContactIndex = SearchByNumber(phoneNumber);
-            if (oldContactIndex != -1)
+            if (tellBook[oldContactIndex] != null && oldContactIndex != -1)
             {
                 CreateContact(ref tellBook[oldContactIndex], newContact);
             }
             else
                 Console.WriteLine("There is No Contact With This Number.");
         }
-        private void RemoveContact(string phoneNumber)
+        public void RemoveContact(string phoneNumber)
         {
             int theContactIndex = SearchByNumber(phoneNumber);
             tellBook[theContactIndex] = null;
+            numberOfContacts--;
         }
-        private int SearchByName(string firstName, string lastName)
+        public int SearchByName(string firstName, string lastName)
         {
             for (int i = 0; i < tellBook.Length; i++)
             {
                 if (tellBook[i].FirstName.ToLower() == firstName.ToLower()
-                    && tellBook[i].LastName.ToLower() == lastName.ToLower())
+                    && tellBook[i].LastName.ToLower() == lastName.ToLower()
+                    && tellBook[i] != null)
                 {
                     return i;
                 }
             }
             return -1;
         }
-        private int SearchByNumber(string phoneNumber)
+        public int SearchByNumber(string phoneNumber)
         {
             for (int i = 0; i < tellBook.Length; i++)
             {
-                if (tellBook[i].PhoneNumber == phoneNumber)
+                if (tellBook[i] != null && tellBook[i].PhoneNumber == phoneNumber)
                 {
                     return i;
                 }
