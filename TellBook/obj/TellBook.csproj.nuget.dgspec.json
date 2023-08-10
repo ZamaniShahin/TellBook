@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SourceCodes\\C#\\New folder\\TellBook\\TellBook\\TellBook.csproj": {}
+    "E:\\SourceCodes\\C#\\TellBook\\TellBook\\TellBook.csproj": {}
   },
   "projects": {
-    "E:\\SourceCodes\\C#\\New folder\\TellBook\\TellBook\\TellBook.csproj": {
+    "E:\\SourceCodes\\C#\\TellBook\\TellBook\\TellBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SourceCodes\\C#\\New folder\\TellBook\\TellBook\\TellBook.csproj",
+        "projectUniqueName": "E:\\SourceCodes\\C#\\TellBook\\TellBook\\TellBook.csproj",
         "projectName": "TellBook",
-        "projectPath": "E:\\SourceCodes\\C#\\New folder\\TellBook\\TellBook\\TellBook.csproj",
+        "projectPath": "E:\\SourceCodes\\C#\\TellBook\\TellBook\\TellBook.csproj",
         "packagesPath": "C:\\Users\\Shahin\\.nuget\\packages\\",
-        "outputPath": "E:\\SourceCodes\\C#\\New folder\\TellBook\\TellBook\\obj\\",
+        "outputPath": "E:\\SourceCodes\\C#\\TellBook\\TellBook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Shahin\\AppData\\Roaming\\NuGet\\NuGet.Config",

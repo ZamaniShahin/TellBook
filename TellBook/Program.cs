@@ -31,6 +31,8 @@ namespace TellBook
         }
         static void Main(string[] args)
         {
+            var dbContext = new ContactDbContext();
+
             Contact contact = new Contact();
             Book tellBook = new Book();
             string oldPhoneNumber;
