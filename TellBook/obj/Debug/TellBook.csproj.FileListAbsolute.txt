@@ -1,8 +1,0 @@
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\bin\Debug\TellBook.exe.config
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\bin\Debug\TellBook.exe
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\bin\Debug\TellBook.pdb
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\obj\Debug\TellBook.csproj.AssemblyReference.cache
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\obj\Debug\TellBook.csproj.SuggestedBindingRedirects.cache
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\obj\Debug\TellBook.csproj.CoreCompileInputs.cache
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\obj\Debug\TellBook.exe
-E:\SourceCodes\C#\Tosinso\TellBook\TellBook\obj\Debug\TellBook.pdb
