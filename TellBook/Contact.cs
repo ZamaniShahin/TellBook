@@ -8,4 +8,15 @@ public class Contact
     public string PhoneNumber { get; set; }
     public string EmailAddress { get; set; }
     public string City { get; set; }
+    public bool IsRemoved { get; set; }
+
+    public Contact(string firstName, string lastName, string phoneNumber, string emailAddress = "Test@gmail.com", string city = "Unknown")
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        PhoneNumber = phoneNumber;
+        EmailAddress = emailAddress;
+        City = city;
+        IsRemoved = false;
+    }
 }

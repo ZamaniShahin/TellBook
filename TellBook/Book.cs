@@ -1,18 +1,38 @@
-﻿namespace TellBook;
+﻿using System.Security.AccessControl;
+
+namespace TellBook;
 
 public class Book
 {
-    public int numberOfContacts = 0;
-    Contact[] tellBook = new Contact[40];
-    private Contact CreateContact(ref Contact newContact, Contact oldContact)
+    private readonly ContactDbContext _context;
+
+    public Book(ContactDbContext context, int numberOfContacts)
     {
-        newContact.FirstName = oldContact.FirstName;
-        newContact.LastName = oldContact.LastName;
-        newContact.PhoneNumber = oldContact.PhoneNumber;
-        newContact.EmailAddress = oldContact.EmailAddress;
-        newContact.City = oldContact.City;
-        return newContact;
+        _context = context;
+        this.numberOfContacts = numberOfContacts;
     }
+
+    public void Create(string firstName, string lastName, string phoneNumber, string emailAddress, string city)
+    {
+        var contact = new Contact(
+            firstName, lastName, phoneNumber, emailAddress, city
+            );
+
+        _context.Add(contact);
+    }
+
+    //public int numberOfContacts = 0;
+    //Contact[] tellBook = new Contact[40];
+    //private Contact CreateContact(ref Contact newContact, Contact oldContact)
+    //{
+
+    //    newContact.FirstName = oldContact.FirstName;
+    //    newContact.LastName = oldContact.LastName;
+    //    newContact.PhoneNumber = oldContact.PhoneNumber;
+    //    newContact.EmailAddress = oldContact.EmailAddress;
+    //    newContact.City = oldContact.City;
+    //    return newContact;
+    //}
     private int SearchForEmptyIndex()
     {
         for (int i = 0; i < tellBook.Length; i++)

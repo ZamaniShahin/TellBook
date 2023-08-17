@@ -10,7 +10,7 @@ namespace TellBook
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString =
-                @"Data Source =.\SQL2019; Initial Catalog=EFCore; Persist Security Info=True; User ID=sa;Password=123; TrustServerCertificate=True\r\n";
+                @"Data Source =.\SQL2019; Initial Catalog=TellBookDb; Persist Security Info=True; User ID=sa;Password=123; TrustServerCertificate=True";
             optionsBuilder.UseSqlServer(connectionString);
             
         }
