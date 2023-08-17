@@ -26,7 +26,7 @@ namespace TellBook
         static void Main(string[] args)
         {
             var dbContext = new ContactDbContext();
-            Book tellBook = new Book();
+            Book tellBook = new Book(dbContext);
             string oldPhoneNumber;
             string firstName, lastName, city, phoneNumber, email;
             int index;

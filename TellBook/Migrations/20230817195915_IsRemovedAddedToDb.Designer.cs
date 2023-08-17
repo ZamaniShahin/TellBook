@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TellBook;
 
@@ -10,9 +11,11 @@ using TellBook;
 namespace TellBook.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    partial class ContactDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230817195915_IsRemovedAddedToDb")]
+    partial class IsRemovedAddedToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

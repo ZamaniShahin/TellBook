@@ -19,4 +19,29 @@ public class Book
 
         _context.Add(contact);
     }
+
+    public void Update(string firstName, string lastName, string phoneNumber, string email, string city)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Remove(string? oldPhoneNumber)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int SearchByName(string? firstName, string? lastName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DisplayContact(int index)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int SearchByNumber(string? phoneNumber)
+    {
+        throw new NotImplementedException();
+    }
 }
