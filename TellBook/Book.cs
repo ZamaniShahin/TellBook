@@ -20,6 +20,11 @@ public class Book
 
         _context.Contacts.Add(contact);
     }
+    public void Remove(string oldPhoneNumber)
+    {
+        var contact = SearchByNumber(oldPhoneNumber);
+        _context.Contacts.Remove(contact);
+    }
 
     public void Update(string firstName, string lastName, string phoneNumber, string email, string city)
     {
@@ -27,10 +32,9 @@ public class Book
         throw new NotImplementedException();
     }
 
-    public void Remove(string oldPhoneNumber)
+    public Contact SearchByNumber(string phoneNumber)
     {
-        var contact = _context.Contacts.FirstOrDefault(x => x.PhoneNumber == oldPhoneNumber);
-        _context.Contacts.Remove(contact);
+        return _context.Contacts.FirstOrDefault(x => x.PhoneNumber == phoneNumber);
     }
 
     public int SearchByName(string? firstName, string? lastName)
@@ -43,8 +47,4 @@ public class Book
         throw new NotImplementedException();
     }
 
-    public int SearchByNumber(string? phoneNumber)
-    {
-        throw new NotImplementedException();
-    }
 }
