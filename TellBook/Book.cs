@@ -1,4 +1,5 @@
 ﻿using System.Security.AccessControl;
+using TellBook.Models;
 
 namespace TellBook;
 
@@ -17,17 +18,19 @@ public class Book
             firstName, lastName, phoneNumber, emailAddress, city
             );
 
-        _context.Add(contact);
+        _context.Contacts.Add(contact);
     }
 
     public void Update(string firstName, string lastName, string phoneNumber, string email, string city)
     {
+        var contact = new UpdateContactViewModel(firstName, lastName, phoneNumber, email, city);
         throw new NotImplementedException();
     }
 
-    public void Remove(string? oldPhoneNumber)
+    public void Remove(string oldPhoneNumber)
     {
-        throw new NotImplementedException();
+        var contact = _context.Contacts.FirstOrDefault(x => x.PhoneNumber == oldPhoneNumber);
+        _context.Contacts.Remove(contact);
     }
 
     public int SearchByName(string? firstName, string? lastName)
