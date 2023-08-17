@@ -11,7 +11,7 @@ public class Book
         _context = context;
     }
 
-    public void Create(string firstName, string lastName, string phoneNumber, string emailAddress, string city)
+    public void Create(string firstName, string lastName, string phoneNumber, string emailAddress = "test@gmail.com", string city = "Unknown")
     {
         var contact = new Contact(
             firstName, lastName, phoneNumber, emailAddress, city
