@@ -40,12 +40,16 @@ public class Book
 
     public Contact SearchByNumber(string phoneNumber)
     {
-        return _context.Contacts.Where(x=>x.IsRemoved == false).FirstOrDefault(x => x.PhoneNumber == phoneNumber);
+        return _context.Contacts
+            .Where(x=>x.IsRemoved == false)
+            .FirstOrDefault(x => x.PhoneNumber == phoneNumber);
     }
 
-    public int SearchByName(string? firstName, string? lastName)
+    public Contact SearchByName(string? firstName, string? lastName)
     {
-        throw new NotImplementedException();
+        return _context.Contacts
+            .Where(x => x.IsRemoved == false)
+            .FirstOrDefault(x => x.FirstName + x.LastName == firstName + lastName);
     }
 
     public void DisplayContact(int index)
