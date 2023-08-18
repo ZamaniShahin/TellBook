@@ -1,4 +1,5 @@
-﻿using System.Security.AccessControl;
+﻿using System.Net.Mail;
+using System.Security.AccessControl;
 using TellBook.Models;
 
 namespace TellBook;
@@ -28,20 +29,27 @@ public class Book
     public void Remove(string oldPhoneNumber)
     {
         var contact = SearchByNumber(oldPhoneNumber);
-        _context.Contacts.Remove(contact);
+        contact.IsRemoved = true;
         _context.SaveChanges();
     }
 
     public void Update(string firstName, string lastName, string phoneNumber, string email, string city)
     {
-        var contact = new UpdateContactViewModel(firstName, lastName, phoneNumber, email, city);
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(city))
+            city = "Unknown";
+        if (string.IsNullOrWhiteSpace(email))
+            email = "Unknown";
+        var contact = SearchByName(firstName, lastName);
+        contact.PhoneNumber = phoneNumber;
+        contact.EmailAddress = email;
+        contact.City = city;
+        _context.SaveChanges();
     }
 
     public Contact SearchByNumber(string phoneNumber)
     {
         return _context.Contacts
-            .Where(x=>x.IsRemoved == false)
+            .Where(x => x.IsRemoved == false)
             .FirstOrDefault(x => x.PhoneNumber == phoneNumber);
     }
 

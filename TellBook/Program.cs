@@ -29,7 +29,7 @@ namespace TellBook
             Book tellBook = new Book(dbContext);
             string oldPhoneNumber;
             string firstName, lastName, city, phoneNumber, email;
-            int index;
+            Contact index;
             while (true)
             {
                 firstName = "";
@@ -38,9 +38,9 @@ namespace TellBook
                 phoneNumber = "";
                 email = "";
                 oldPhoneNumber = "";
-                index = 0;
+                index = null;
                 Clear();
-                WriteLine($"You Have {dbContext.Contacts.Count()} Contacts.");
+                WriteLine($"You Have {dbContext.Contacts.Where(x=>x.IsRemoved == false).Count()} Contacts.");
                 WriteLine("-------------------------");
                 WriteLine("1.Add");
                 WriteLine("2.Update");
@@ -84,8 +84,8 @@ namespace TellBook
                     case 5:
                         WriteLine("Please Enter Contact's PhoneNumber:");
                         phoneNumber = ReadLine();
-                        //index = tellBook.SearchByNumber(phoneNumber);
-                        //tellBook.DisplayContact(index);
+                        index = tellBook.SearchByNumber(phoneNumber);
+                        tellBook.DisplayContact(index);
                         WriteLine("-------------------------");
                         WriteLine("Press Any Key To Continue.");
                         ReadKey();
