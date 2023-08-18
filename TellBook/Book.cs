@@ -12,18 +12,24 @@ public class Book
         _context = context;
     }
 
-    public void Create(string firstName, string lastName, string phoneNumber, string emailAddress = "test@gmail.com", string city = "Unknown")
+    public void Create(string firstName, string lastName, string phoneNumber, string emailAddress, string city)
     {
+        if (string.IsNullOrWhiteSpace(city))
+            city = "Unknown";
+        if (string.IsNullOrWhiteSpace(emailAddress))
+            emailAddress = "Unknown";
         var contact = new Contact(
             firstName, lastName, phoneNumber, emailAddress, city
             );
 
         _context.Contacts.Add(contact);
+        _context.SaveChanges();
     }
     public void Remove(string oldPhoneNumber)
     {
         var contact = SearchByNumber(oldPhoneNumber);
         _context.Contacts.Remove(contact);
+        _context.SaveChanges();
     }
 
     public void Update(string firstName, string lastName, string phoneNumber, string email, string city)
@@ -34,7 +40,7 @@ public class Book
 
     public Contact SearchByNumber(string phoneNumber)
     {
-        return _context.Contacts.FirstOrDefault(x => x.PhoneNumber == phoneNumber);
+        return _context.Contacts.Where(x=>x.IsRemoved == false).FirstOrDefault(x => x.PhoneNumber == phoneNumber);
     }
 
     public int SearchByName(string? firstName, string? lastName)

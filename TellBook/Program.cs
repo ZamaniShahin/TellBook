@@ -84,8 +84,8 @@ namespace TellBook
                     case 5:
                         WriteLine("Please Enter Contact's PhoneNumber:");
                         phoneNumber = ReadLine();
-                        index = tellBook.SearchByNumber(phoneNumber);
-                        tellBook.DisplayContact(index);
+                        //index = tellBook.SearchByNumber(phoneNumber);
+                        //tellBook.DisplayContact(index);
                         WriteLine("-------------------------");
                         WriteLine("Press Any Key To Continue.");
                         ReadKey();
