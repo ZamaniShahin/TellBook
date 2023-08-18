@@ -45,16 +45,20 @@ public class Book
             .FirstOrDefault(x => x.PhoneNumber == phoneNumber);
     }
 
-    public Contact SearchByName(string? firstName, string? lastName)
+    public Contact SearchByName(string firstName, string lastName)
     {
         return _context.Contacts
             .Where(x => x.IsRemoved == false)
-            .FirstOrDefault(x => x.FirstName + x.LastName == firstName + lastName);
+            .FirstOrDefault(x => x.FirstName.ToLower() + x.LastName.ToLower() == firstName.ToLower() + lastName.ToLower());
     }
 
-    public void DisplayContact(int index)
+    public void DisplayContact(Contact contact)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("First Name: " + contact.FirstName);
+        Console.WriteLine("Last Name: " + contact.LastName);
+        Console.WriteLine("Phone Number: " + contact.PhoneNumber);
+        Console.WriteLine("City : " + contact.City);
+        Console.WriteLine("Email Address: " + contact.EmailAddress);
     }
 
 }
