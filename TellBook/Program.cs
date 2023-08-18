@@ -60,8 +60,6 @@ namespace TellBook
                         tellBook.Create(firstName, lastName, phoneNumber, email, city);
                         break;
                     case 2:
-                        WriteLine("Please Enter The Old Number Of Contact That You Want To Update.");
-                        oldPhoneNumber = ReadLine();
                         GetAndSetInfo(ref firstName, ref lastName, ref city, ref phoneNumber, ref email);
                         tellBook.Update(firstName, lastName, phoneNumber, email, city);
                         break;
