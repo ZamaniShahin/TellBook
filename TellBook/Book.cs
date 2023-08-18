@@ -1,6 +1,5 @@
 ﻿using System.Net.Mail;
 using System.Security.AccessControl;
-using TellBook.Models;
 
 namespace TellBook;
 
